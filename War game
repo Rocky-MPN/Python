@@ -1,9 +1,9 @@
-import random
+iimport random
+
 
 suits = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
 ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
-values = {'Two':2, 'Three':3, 'Four':4, 'Five':5, 'Six':6, 'Seven':7, 'Eight':8, 
-            'Nine':9, 'Ten':10, 'Jack':11, 'Queen':12, 'King':13, 'Ace':14}
+values = {'Two':2, 'Three':3, 'Four':4, 'Five':5, 'Six':6, 'Seven':7, 'Eight':8, 'Nine':9, 'Ten':10, 'Jack':11, 'Queen':12, 'King':13, 'Ace':14}
 
 class Card:
     
@@ -34,6 +34,12 @@ class Deck:
         # Note we remove one card from the list of all_cards
         return self.all_cards.pop()
 
+mydeck = Deck()
+
+mydeck.shuffle()
+
+my_card = mydeck.deal_one()
+
 
 class Player:
     
@@ -57,11 +63,19 @@ class Player:
     
     def __str__(self):
         return f'Player {self.name} has {len(self.all_cards)} cards.'
-        
-        
+
+
+player_one = Player("One")
+player_two = Player("Two")
+
+new_deck = Deck()
+new_deck.shuffle()
+
 for x in range(26):
     player_one.add_cards(new_deck.deal_one())
     player_two.add_cards(new_deck.deal_one())
+
+
 
 game_on = True
 
